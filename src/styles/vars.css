@@ -1,0 +1,75 @@
+:root {
+  /* colors */
+  --tb-color-white: #ffffff;
+  --tb-color-black: #000000;
+  --colors: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399
+  );
+
+  @each $val, $color in var(--colors) {
+    --tb-color-$(val): $(color);
+    @for $i from 3 to 9 by 2 {
+      --tb-color-$(val)-light-$(i): mix(#fff, $(color), .$(i));
+    }
+    --tb-color-$(val)-light-8: mix(#fff, $(color), 0.8);
+    --tb-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  --tb-bg-color: #ffffff;
+  --tb-bg-color-page: #f2f3f5;
+  --tb-bg-color-overlay: #ffffff;
+  --tb-text-color-primary: #303133;
+  --tb-text-color-regular: #606266;
+  --tb-text-color-secondary: #909399;
+  --tb-text-color-placeholder: #a8abb2;
+  --tb-text-color-disabled: #c0c4cc;
+  --tb-border-color: #dcdfe6;
+  --tb-border-color-light: #e4e7ed;
+  --tb-border-color-lighter: #ebeef5;
+  --tb-border-color-extra-light: #f2f6fc;
+  --tb-border-color-dark: #d4d7de;
+  --tb-border-color-darker: #cdd0d6;
+  --tb-fill-color: #f0f2f5;
+  --tb-fill-color-light: #f5f7fa;
+  --tb-fill-color-lighter: #fafafa;
+  --tb-fill-color-extra-light: #fafcff;
+  --tb-fill-color-dark: #ebedf0;
+  --tb-fill-color-darker: #e6e8eb;
+  --tb-fill-color-blank: #ffffff;
+
+  /* border */
+  --tb-border-width: 1px;
+  --tb-border-style: solid;
+  --tb-border-color-hover: var(--tb-text-color-disabled);
+  --tb-border: var(--tb-border-width) var(--tb-border-style)
+    var(--tb-border-color);
+  --tb-border-radius-base: 4px;
+  --tb-border-radius-small: 2px;
+  --tb-border-radius-round: 20px;
+  --tb-border-radius-circle: 100%;
+
+  /*font*/
+  --tb-font-size-extra-large: 20px;
+  --tb-font-size-large: 18px;
+  --tb-font-size-medium: 16px;
+  --tb-font-size-base: 14px;
+  --tb-font-size-small: 13px;
+  --tb-font-size-extra-small: 12px;
+  --tb-font-family: "Helvetica Neue", Helvetica, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial,
+    sans-serif;
+  --tb-font-weight-primary: 500;
+
+  /*disabled*/
+  --tb-disabled-bg-color: var(--tb-fill-color-light);
+  --tb-disabled-text-color: var(--tb-text-color-placeholder);
+  --tb-disabled-border-color: var(--tb-border-color-light);
+
+  /*animation*/
+  --tb-transition-duration: 0.3s;
+  --tb-transition-duration-fast: 0.2s;
+}
